@@ -125,6 +125,29 @@ public class LinkedLists {
 		}
 	}
 	
+	public void sortLinkedList(){
+		int c = 0;
+		Node a;
+		a = head;
+		
+		while(a.address !=null){
+			Node b = head;
+			while(b.address != null){
+				if(b.value < b.address.value){
+					c = b.value;
+					b.value = b.address.value;
+					b.address.value = c;
+				}
+				b = b.address;
+			}
+			a = a.address;
+		}
+		
+	}
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 		LinkedLists ls = new LinkedLists(2);
@@ -135,6 +158,14 @@ public class LinkedLists {
 		
 		ls.insertLast(100);
 		ls.insertMiddle(32, 12);
+		
+		
+		ls.print();
+		
+		
+		ls.sortLinkedList();
+		
+		System.out.println(" AFTER SORTING :");
 		ls.print();
 	
 	}
